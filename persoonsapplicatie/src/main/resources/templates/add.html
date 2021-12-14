@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="'Voeg een persoon toe'" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1 th:text="'Voeg een persoon toe'" />
+<a th:href="@{/personen/all}">Terug naar de lijst</a>
+<br/><br/>
+<form th:action="@{/personen/add}"
+      th:object="${persoon}" method="POST">
+    <table border="0">
+        <tr th:if="${persoon.id}">
+            <td>ID</td>
+            <td>:</td>
+            <td th:utext="${persoon.id}">...</td>
+        </tr>
+        <tr>
+            <td>Voornaam</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{voornaam}" /></td>
+        </tr>
+        <tr>
+            <td>Achternaam</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{achternaam}" /></td>
+        </tr>
+        <tr>
+            <td>Geboortedatum</td>
+            <td>:</td>
+            <td><input type="date" th:field="*{geboorteDatum}" /></td>
+        </tr>
+        <tr>
+            <td>Geslacht</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{geslacht}" size="1" /></td>
+        </tr>
+    </table>
+    <br/><br/>
+    <input type="submit" th:value="'Opslaan'" />
+</form>
+
+<br/>
+<!-- Check if errorMessage is not null and not empty -->
+<div th:if="${errorMessage}" th:utext="${errorMessage}" class="error" />
+</body>
+</html>

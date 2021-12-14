@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Alle personen</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Personen</h1>
+
+<div>
+    <nobr>
+        <a th:href="@{/}">Back to Index</a>
+    </nobr>
+</div>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Voornaam</th>
+            <th>Achternaam</th>
+            <th>Geboortedatum</th>
+            <th>Geslacht</th>
+            <th>Aanspreektitel</th>
+        </tr>
+        <tr th:each ="persoon : ${personen}">
+            <td th:utext="${persoon.voornaam}">...</td>
+            <td th:utext="${persoon.achternaam}">...</td>
+            <td th:utext="${persoon.geboorteDatum}">...</td>
+            <td th:utext="${persoon.geslacht}">...</td>
+            <td th:utext="${persoon.aanspreektitel}">...</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

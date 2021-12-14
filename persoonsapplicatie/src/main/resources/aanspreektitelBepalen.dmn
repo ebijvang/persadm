@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0dovzug" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.11.1">
+  <decision id="Decision_081yllr" name="Aanspreektitel">
+    <informationRequirement id="InformationRequirement_154io5m">
+      <requiredInput href="#InputData_0df8iqi" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_107qzqe">
+      <requiredInput href="#InputData_0aneow7" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1odfbba">
+      <input id="Input_1" label="leeftijd" camunda:inputVariable="leeftijd">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_02zi0yd" label="geslacht" camunda:inputVariable="geslacht">
+        <inputExpression id="LiteralExpression_0ywb0pw" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="aanspreekTitel" label="aanspreekTitel" name="aanspreekTitel" typeRef="string" />
+      <rule id="DecisionRule_12ba45b">
+        <inputEntry id="UnaryTests_0ad6d9z">
+          <text>&lt;18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p8hjxl">
+          <text>V</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w0b8fq">
+          <text>Mejuffrouw</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ul1j32">
+        <inputEntry id="UnaryTests_1ksfbxg">
+          <text>&lt;18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hbte26">
+          <text>M</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0km2j9s">
+          <text>Jongeheer</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fwo4v3">
+        <inputEntry id="UnaryTests_19pj21r">
+          <text>&gt;=18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ydj9yz">
+          <text>V</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1022346">
+          <text>Mevrouw</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rwpkq2">
+        <inputEntry id="UnaryTests_18jyeg3">
+          <text>&gt;=18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01qtnyw">
+          <text>M</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cv3bp9">
+          <text>Meneer</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0df8iqi" name="leeftijd" />
+  <inputData id="InputData_0aneow7" name="geslacht" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_081yllr">
+        <dc:Bounds height="80" width="180" x="260" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1dlb4vf" dmnElementRef="InputData_0df8iqi">
+        <dc:Bounds height="45" width="125" x="158" y="268" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1wfc2pn" dmnElementRef="InformationRequirement_154io5m">
+        <di:waypoint x="221" y="268" />
+        <di:waypoint x="320" y="200" />
+        <di:waypoint x="320" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1bk8w4x" dmnElementRef="InputData_0aneow7">
+        <dc:Bounds height="45" width="125" x="388" y="269" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_02n8cjk" dmnElementRef="InformationRequirement_107qzqe">
+        <di:waypoint x="451" y="269" />
+        <di:waypoint x="380" y="200" />
+        <di:waypoint x="380" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
