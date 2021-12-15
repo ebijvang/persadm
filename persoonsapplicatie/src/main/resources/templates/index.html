@@ -9,11 +9,13 @@
 <h1>PersonenApplicatie</h1>
 
 <div>
-    <nobr>
-        <a th:href="@{/personen/all}">Alle personen</a>
-        <br/>
-        <a th:href="@{/personen/add}">Voeg een persoon toe</a>
-    </nobr>
+    <form th:action="@{/personen/all}">
+        <button type="submit" >Alle personen</button>
+    </form>
+    <br/>
+    <form th:action="@{/personen/add}">
+        <button type="submit" >Voeg toe</button>
+    </form>
 </div>
 </body>
 </html>

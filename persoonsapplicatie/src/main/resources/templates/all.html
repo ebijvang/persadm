@@ -9,9 +9,9 @@
 <h1>Personen</h1>
 
 <div>
-    <nobr>
-        <a th:href="@{/}">Back to Index</a>
-    </nobr>
+    <form th:action="@{/personen/index}">
+        <button type="submit" th:name="action">Terug</button>
+    </form>
 </div>
 <br/><br/>
 <div>
@@ -28,7 +28,7 @@
             <td th:utext="${persoon.achternaam}">...</td>
             <td th:utext="${persoon.geboorteDatum}">...</td>
             <td th:utext="${persoon.geslacht}">...</td>
-            <td th:utext="${persoon.aanspreektitel}">...</td>
+            <td th:utext="${persoon.aanspreekTitel}">...</td>
         </tr>
     </table>
 </div>

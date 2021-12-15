@@ -23,7 +23,7 @@ public class Persoon {
 
     private LocalDate geboorteDatum;
 
-    private char geslacht;
+    private String geslacht;
 
     private String aanspreekTitel;
 }

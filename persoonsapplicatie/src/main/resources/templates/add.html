@@ -39,7 +39,10 @@
         </tr>
     </table>
     <br/><br/>
-    <input type="submit" th:value="'Opslaan'" />
+    <form th:action="@{/personen/all}">
+        <button type="submit" th:name="action">Opslaan</button>
+    </form>
+<!--    <input type="submit" th:value="'Opslaan'" />-->
 </form>
 
 <br/>

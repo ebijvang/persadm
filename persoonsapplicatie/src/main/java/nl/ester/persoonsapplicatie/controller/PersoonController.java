@@ -1,5 +1,6 @@
 package nl.ester.persoonsapplicatie.controller;
 
+import nl.ester.persoonsapplicatie.PersoonsService;
 import nl.ester.persoonsapplicatie.model.Persoon;
 import nl.ester.persoonsapplicatie.repository.PersoonsRepository;
 import org.camunda.bpm.dmn.engine.DmnDecisionTableResult;
@@ -20,7 +21,7 @@ import java.util.List;
 @RequestMapping(path = "/personen")
 public class PersoonController {
     @Autowired
-    PersoonsRepository persoonsRepository;
+    PersoonsService persoonsService;
 
     @Autowired
     ProcessEngine processEngine;
@@ -30,29 +31,19 @@ public class PersoonController {
         return "index";
     }
 
+    @RequestMapping(value = "/all")
+    public String all() {
+        return "all";
+    }
 
     @GetMapping(value = "all")
     public String getPersonen(Model model,
                               @RequestParam(value = "page", defaultValue = "1") int pageNumber) {
-        List<Persoon> personen = (List<Persoon>) persoonsRepository.findAll();
-//        personen.forEach(persoon -> persoon.setAanspreekTitel(bepaalAanspreektitel(persoon, processEngine)));
-        personen.forEach(persoon-> persoon.setAanspreekTitel("test"));
+        List<Persoon> personen = persoonsService.vindAllePersonen();
         model.addAttribute("personen", personen);
         return "all";
     }
 
-    private String bepaalAanspreektitel(Persoon persoon, ProcessEngine processEngine) {
-        DecisionService decisionService = processEngine.getDecisionService();
-        VariableMap variables = Variables.createVariables()
-                .putValue("leeftijd", bepaalLeeftijd(persoon.getGeboorteDatum()))
-                .putValue("geslacht", persoon.getGeslacht());
-        DmnDecisionTableResult result = decisionService.evaluateDecisionTableByKey("Decision_081yllr", variables);
-        return result.getSingleEntry();
-    }
-
-    private Integer bepaalLeeftijd(LocalDate geboorteDatum) {
-        return Period.between(geboorteDatum,LocalDate.now()).getYears();
-    }
 
 
     @GetMapping(path = "/add")
@@ -63,7 +54,7 @@ public class PersoonController {
     @PostMapping(path = "/add")
     public String addNewPersoon(@ModelAttribute Persoon persoon, Model model) {
         try {
-            persoonsRepository.save(persoon);
+            persoonsService.saveAndUpdatePersoon(persoon);
             return "all";
         } catch (Exception ex) {
             String errorMessage = ex.getMessage();

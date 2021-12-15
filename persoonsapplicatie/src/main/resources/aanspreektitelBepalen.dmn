@@ -24,10 +24,10 @@
           <text>&lt;18</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0p8hjxl">
-          <text>V</text>
+          <text>"V"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1w0b8fq">
-          <text>Mejuffrouw</text>
+          <text>"Mejuffrouw"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0ul1j32">
@@ -35,10 +35,10 @@
           <text>&lt;18</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1hbte26">
-          <text>M</text>
+          <text>"M"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0km2j9s">
-          <text>Jongeheer</text>
+          <text>"Jongeheer"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1fwo4v3">
@@ -46,10 +46,10 @@
           <text>&gt;=18</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0ydj9yz">
-          <text>V</text>
+          <text>"V"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1022346">
-          <text>Mevrouw</text>
+          <text>"Mevrouw"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0rwpkq2">
@@ -57,10 +57,10 @@
           <text>&gt;=18</text>
         </inputEntry>
         <inputEntry id="UnaryTests_01qtnyw">
-          <text>M</text>
+          <text>"M"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0cv3bp9">
-          <text>Meneer</text>
+          <text>"Meneer"</text>
         </outputEntry>
       </rule>
     </decisionTable>
