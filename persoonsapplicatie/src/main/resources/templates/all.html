@@ -7,12 +7,6 @@
 </head>
 <body>
 <h1>Personen</h1>
-
-<div>
-    <form th:action="@{/personen/index}">
-        <button type="submit" th:name="action">Terug</button>
-    </form>
-</div>
 <br/><br/>
 <div>
     <table border="1">
@@ -31,6 +25,12 @@
             <td th:utext="${persoon.aanspreekTitel}">...</td>
         </tr>
     </table>
+</div>
+<br/>
+<div>
+    <form th:action="@{/personen/index}">
+        <button type="submit" th:name="action">Terug</button>
+    </form>
 </div>
 </body>
 </html>

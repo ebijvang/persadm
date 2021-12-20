@@ -28,6 +28,7 @@ public class PersoonsService {
         if (persoon != null) {
             if (persoon.getAanspreekTitel() == null)
                 persoon.setAanspreekTitel(bepaalAanspreektitel(persoon, processEngine));
+            persoon.setPersoon(persoon);
             persoonsRepository.save(persoon);
         }
     }

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="'Voeg een adres toe'" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1 th:text="'Voeg een adres toe'" />
+<form th:action="@{/personen/addAdres}"
+      th:object="${adres}" method="POST"
+      th:object="${persoon}" method = "GET">
+
+    <h2 th:text = "${persoon.voornaam}"></h2>
+    <table border="0">
+        <tr th:if="${adres.id}">
+            <td>ID</td>
+            <td>:</td>
+            <td th:utext="${adres.id}">...</td>
+        </tr>
+        <tr>
+            <td>Straat</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{straat}" /></td>
+        </tr>
+        <tr>
+            <td>Huisnummer</td>
+            <td>:</td>
+            <td><input type="number" th:field="*{huisnummer}" /></td>
+        </tr>
+        <tr>
+            <td>Toevoeging</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{huisnummerToevoeging}" /></td>
+        </tr>
+        <tr>
+            <td>Postcode</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{postcode}" /></td>
+        </tr>
+        <tr>
+            <td>Woonplaats</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{woonplaats}" /></td>
+        </tr>
+        <tr>
+            <td>Land</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{land}" /></td>
+        </tr>
+    </table>
+    <br/><br/>
+    <form th:action="@{/personen/addAdres}">
+        <button type="submit" th:name="action">Opslaan</button>
+    </form>
+</form>
+
+<br/>
+<div th:if="${errorMessage}" th:utext="${errorMessage}" class="error" />
+</body>
+</html>
